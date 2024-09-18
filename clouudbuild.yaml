@@ -1,0 +1,16 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args:
+    [
+      'build',
+      '-t',
+      'us-central1-docker.pkg.dev/kubernetes-429102/k8s/container2:latest',
+      '-f',
+      'dockerfile', 
+      '.',
+    ]
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'us-central1-docker.pkg.dev/kubernetes-429102/k8s/container2:latest']
+ 
+images:
+- 'us-central1-docker.pkg.dev/kubernetes-429102/k8s/container2:latest'
